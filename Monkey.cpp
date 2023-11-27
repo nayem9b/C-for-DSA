@@ -1,16 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
-    char s[100];
-    while (cin.getline(s, 100))
-    {
-        for (int i = 0; i < s[100]; i++)
-        {
-            cout << s[i];
-        }
+    char a[100001];
 
-        // cout << s << endl;
+    while (cin.getline(a, 100001))
+    {
+        for (size_t l = 0; l < strlen(a); l++)
+        {
+            for (size_t i = 0; i < strlen(a) - 1; i++)
+            {
+                for (size_t j = i + 1; j < strlen(a); j++)
+                {
+                    if (a[i] > a[j])
+                    {
+                        int tmp = a[i];
+                        a[i] = a[j];
+                        a[j] = tmp;
+                    }
+                }
+            }
+            if (a[l] != ' ')
+            {
+                cout << a[l];
+            }
+        }
+        cout << endl;
     }
+
     return 0;
 }
